@@ -1,0 +1,16 @@
+Running integration smoke tests against http://localhost:5000
+Create user A
+{"id":1,"username":"alice","email":"alice@example.com","passwordHash":"hash","createdAt":"2026-02-28T00:00:00Z"}
+Create user B
+{"id":2,"username":"bob","email":"bob@example.com","passwordHash":"hash","createdAt":"2026-02-28T00:00:00Z"}
+Create project
+{"id":1,"name":"Proj1","description":"Test project","ownerId":1,"owner":null,"members":[],"tasks":[]}
+Create task
+{"id":1,"title":"T1","description":"Do thing","status":"Open","projectId":1,"project":null,"assigneeId":1,"assignee":null}
+Send project message
+{"id":1,"senderId":1,"sender":null,"projectId":1,"project":null,"receiverId":null,"receiver":null,"parentId":null,"parent":null,"replies":[],"content":"Hello project"}
+List project messages
+[{"id":1,"senderId":1,"sender":null,"projectId":1,"project":null,"receiverId":null,"receiver":null,"parentId":null,"parent":null,"replies":[],"content":"Hello project"}]List tasks for project
+[{"id":1,"title":"T1","description":"Do thing","status":"Open","projectId":1,"project":null,"assigneeId":1,"assignee":null}]Create notification
+{"id":1,"userId":1,"user":null,"content":"Task assigned","isRead":false,"type":"Task","referenceId":1}List notifications for user
+[{"id":1,"userId":1,"user":null,"content":"Task assigned","isRead":false,"type":"Task","referenceId":1}]Smoke tests completed

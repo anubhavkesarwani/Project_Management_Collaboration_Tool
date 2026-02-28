@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowMissingPrunePackageData>true</AllowMissingPrunePackageData>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\ProjectManagement.Core\ProjectManagement.Core.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\ProjectManagement.Infrastructure\ProjectManagement.Infrastructure.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- SignalR server is part of Microsoft.AspNetCore.App for supported runtimes; avoid older package to prevent pulling outdated transitive deps -->
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.0" />
+  </ItemGroup>
+</Project>

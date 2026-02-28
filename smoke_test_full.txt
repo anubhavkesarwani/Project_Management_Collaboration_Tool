@@ -1,0 +1,24 @@
+Running integration smoke tests against http://localhost:5000
+Create user A
+
+Create user B
+
+Create project
+{"id":3,"name":"Proj1","description":"Test project","ownerId":1,"owner":null,"members":[],"tasks":[]}
+Create task
+
+Send project message
+
+List project messages
+[{"id":1,"senderId":1,"sender":null,"projectId":1,"project":null,"receiverId":null,"receiver":null,"parentId":null,"parent":null,"replies":[],"content":"Hello project"}]List tasks for project
+[{"id":1,"title":"T1","description":"Do thing","status":"InProgress","projectId":1,"project":null,"assigneeId":1,"assignee":null}]Create notification
+List notifications for user
+[{"id":1,"userId":1,"user":null,"content":"Task assigned","isRead":false,"type":"Task","referenceId":1}]Smoke tests completed
+Attempt auth login as alice
+Token: ...
+Test update task status
+Test update message content
+Test delete message
+Test delete task
+Test delete notification
+Extended smoke tests completed

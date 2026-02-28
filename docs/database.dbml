@@ -1,0 +1,59 @@
+// DBML for MVP Phase 1 - Project Management Collaboration Tool
+
+Table Users {
+  Id int [pk, increment]
+  Username varchar
+  Email varchar [unique]
+  PasswordHash varchar
+  CreatedAt datetime [default: `now()`]
+}
+
+Table Projects {
+  Id int [pk, increment]
+  Name varchar
+  Description text
+  OwnerId int [ref: > Users.Id]
+}
+
+Table ProjectMembers {
+  Id int [pk, increment]
+  ProjectId int [ref: > Projects.Id]
+  UserId int [ref: > Users.Id]
+  Role varchar
+
+  Indexes {
+    (ProjectId, UserId) [unique]
+  }
+}
+
+Table Tasks {
+  Id int [pk, increment]
+  Title varchar
+  Description text
+  Status varchar
+  ProjectId int [ref: > Projects.Id]
+  AssigneeId int [ref: > Users.Id]
+}
+
+Table Messages {
+  Id int [pk, increment]
+  SenderId int [ref: > Users.Id]
+  ProjectId int [ref: > Projects.Id, note: 'null for DMs']
+  ReceiverId int [ref: > Users.Id, note: 'null for Group messages']
+  ParentId int [ref: > Messages.Id]
+  Content text
+
+  Indexes {
+    ProjectId
+    ReceiverId
+  }
+}
+
+Table Notifications {
+  Id int [pk, increment]
+  UserId int [ref: > Users.Id]
+  Content text
+  IsRead boolean [default: false]
+  Type varchar
+  ReferenceId int
+}

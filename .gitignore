@@ -1,0 +1,72 @@
+# Visual Studio / .NET
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+**/bin/
+**/obj/
+artifacts/
+
+# Rider / JetBrains
+.idea/
+*.sln.iml
+
+# VS Code
+.vscode/
+.history/
+
+# NuGet
+*.nupkg
+packages/
+.nuget/
+# local NuGet cache (uncomment if using local cache)
+# ~/.nuget/packages/
+
+# Runtime
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+src/Api/ProjectManagement.Api/data/*.db
+
+# Logs
+logs/
+*.log
+TestResults/
+*.trx
+docs/architecture.md
+docs/database.dbml
+
+# User secrets & environment config
+secrets.json
+appsettings.*.Local.json
+.env
+.env.local
+.env.*
+
+# Coverage
+coverage*
+coverage/*
+*.coverage
+coverage.cobertura.xml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Misc
+*.swp
+*~
+
+# Ignore generated files
+**/obj/**
+**/bin/**
+
+# Ignore compiled test results
+src/Tests/**/TestResults/
+
+# Ignore node_modules if frontend is added later
+node_modules/
