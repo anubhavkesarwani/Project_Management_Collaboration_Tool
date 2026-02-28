@@ -94,7 +94,7 @@ SignalR Hub
 
 ### 1️⃣ Clone the Repository
 
-git clone https://github.com/your-username/project-management-tool.git\
+git clone repo-link\
 cd project-management-tool
 
 ------------------------------------------------------------------------
@@ -195,6 +195,10 @@ This project is developed for educational and hackathon purposes.
 
 ------------------------------------------------------------------------
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-Developed as a Full Stack Project using Angular and ASP.NET Core.
+- Ankit Sharan Srivastava
+- Anubhav Kesarwani
+- Aradhya Srivastava
+
+
