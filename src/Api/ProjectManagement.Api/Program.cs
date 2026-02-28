@@ -20,7 +20,14 @@ builder.Services.AddControllers()
     });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddCors(options => options.AddDefaultPolicy(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Localhost4200", policy =>
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials());
+});
 
 // Authentication (simple JWT for prototyping)
 var jwtKey = builder.Configuration["Jwt:Key"] ?? "dev-secret-key-change-me";
@@ -70,6 +77,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 app.UseRouting();
+app.UseCors("Localhost4200");
 app.UseAuthentication();
 app.UseAuthorization();
 
