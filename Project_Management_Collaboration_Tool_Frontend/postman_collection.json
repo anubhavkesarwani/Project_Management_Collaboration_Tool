@@ -1,0 +1,60 @@
+{
+  "info": {
+    "name": "ProjectManagement API - Tiny Collection",
+    "_postman_id": "pm-collection-1",
+    "description": "Minimal collection with login + common requests (replace variables)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"alice\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/auth/login",
+          "host": ["{{base_url}}"],
+          "path": ["api","auth","login"]
+        }
+      }
+    },
+    {
+      "name": "Create User (Signup)",
+      "request": {
+        "method": "POST",
+        "header": [ { "key": "Content-Type", "value": "application/json" } ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"frontend-alice\",\n  \"email\": \"frontend-alice@example.com\",\n  \"passwordHash\": \"password\",\n  \"createdAt\": \"2026-02-28T00:00:00Z\"\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/users", "host": ["{{base_url}}"], "path": ["api","users"] }
+      }
+    },
+    {
+      "name": "Create Project (auth)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"MyFrontendProj\",\n  \"description\": \"Created from frontend\",\n  \"ownerId\": {{userId}}\n}"
+        },
+        "url": { "raw": "{{base_url}}/api/projects", "host": ["{{base_url}}"], "path": ["api","projects"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:5000" },
+    { "key": "token", "value": "" },
+    { "key": "userId", "value": "1" }
+  ]
+}

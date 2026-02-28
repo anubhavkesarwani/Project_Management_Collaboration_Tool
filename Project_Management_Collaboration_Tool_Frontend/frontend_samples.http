@@ -1,0 +1,69 @@
+### Login (get JWT)
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "password"
+}
+
+### Create user (signup)
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+  "username": "frontend-alice",
+  "email": "frontend-alice@example.com",
+  "passwordHash": "password",
+  "createdAt": "2026-02-28T00:00:00Z"
+}
+
+### Create project (replace {{TOKEN}})
+POST http://localhost:5000/api/projects
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "name": "MyFrontendProj",
+  "description": "Created from frontend",
+  "ownerId": 1
+}
+
+### Create task
+POST http://localhost:5000/api/tasks
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "title": "Implement UI",
+  "description": "Build Angular pages",
+  "status": "Open",
+  "projectId": 1,
+  "assigneeId": 1
+}
+
+### Send project message
+POST http://localhost:5000/api/messages
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "senderId": 1,
+  "projectId": 1,
+  "receiverId": null,
+  "parentId": null,
+  "content": "Hello from frontend"
+}
+
+### Create notification
+POST http://localhost:5000/api/notifications
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "content": "Task assigned",
+  "isRead": false,
+  "type": "Task",
+  "referenceId": 1
+}

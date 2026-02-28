@@ -1,0 +1,75 @@
+# OpenAPI examples for frontend generator
+# Refer to these examples when generating clients or for interactive testing
+components:
+  examples:
+    LoginRequestExample:
+      summary: Typical login request
+      value:
+        username: alice
+        password: password
+    LoginResponseExample:
+      summary: JWT response
+      value:
+        token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...replace
+    UserCreateExample:
+      summary: Sign-up request example (frontend should send plaintext password)
+      value:
+        username: frontend-alice
+        email: frontend-alice@example.com
+        password: password
+        createdAt: 2026-02-28T00:00:00Z
+    UserResponseExample:
+      summary: Created user response example
+      value:
+        id: 101
+        username: frontend-alice
+        email: frontend-alice@example.com
+        createdAt: 2026-02-28T00:00:00Z
+    ProjectCreateExample:
+      summary: Create project payload
+      value:
+        name: MyFrontendProj
+        description: Created from frontend
+        ownerId: 101
+    ProjectResponseExample:
+      summary: Project response
+      value:
+        id: 201
+        name: MyFrontendProj
+        description: Created from frontend
+        ownerId: 101
+    TaskCreateExample:
+      summary: Create task payload
+      value:
+        title: Implement UI
+        description: Build the Angular views
+        status: Open
+        projectId: 201
+        assigneeId: 101
+    TaskResponseExample:
+      summary: Task response
+      value:
+        id: 301
+        title: Implement UI
+        description: Build the Angular views
+        status: Open
+        projectId: 201
+        assigneeId: 101
+    MessageCreateExample:
+      summary: Create project message
+      value:
+        senderId: 101
+        projectId: 201
+        receiverId: null
+        parentId: null
+        content: Hello team, I pushed a UI stub
+    NotificationCreateExample:
+      summary: Create notification payload
+      value:
+        userId: 101
+        content: Task assigned
+        isRead: false
+        type: Task
+        referenceId: 301
+
+# How to reference in OpenAPI: $ref: '#/components/examples/LoginRequestExample'
